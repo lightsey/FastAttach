@@ -1,0 +1,1 @@
+TARGET_PID=6592 LD_PRELOAD=/home/jd/src/git/github/fastattach/libfastattach.so /usr/bin/gdb -p 6592
