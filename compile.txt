@@ -1,1 +1,0 @@
-gcc fastattach.c -o libfastattach.so -fPIC -DPIC --shared -Wl,--init,fastattach -Wl,--strip-all -ldl

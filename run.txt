@@ -1,4 +1,0 @@
-LD_PRELOAD=/home/jd/src/git/github/fastattach/libfastattach.so /usr/bin/gdb -p 6592
-
-
-perl -e 'use Time::HiRes qw(time); $ENV{LD_PRELOAD} = "/home/jd/src/git/github/fastattach/libfastattach.so"; my $start = time(); my $pid = fork(); if (!$pid) { my $cnt = 1; while ($cnt < 100000) { print "" . (time() - $start) . "\n"; $cnt++;};exit;}; exec("/usr/bin/gdb", "-p", $pid);'

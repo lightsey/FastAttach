@@ -1,0 +1,22 @@
+About:
+
+FastAttach is a simple LD_PRELOAD library for making "gdb -p <pid>" attach to
+processes more rapidly. It accomplishes this by attaching to the process as soon
+as the library is loaded and tricking GBD into believing that it's subsequent
+ptrace() call succeeded.
+
+
+Compiling:
+
+Right now you need to do this manually using compiler options like this...
+
+gcc fastattach.c -o libfastattach.so -fPIC -DPIC --shared -Wl,--init,fastattach -Wl,--strip-all -ldl
+
+
+Using:
+
+The compiled libfastattach.so parses the gdb command line arguments. To use it,
+you need only preload the library...
+
+LD_PRELOAD=/full/path/to/libfastattach.so /usr/bin/gdb -p <pid>
+
